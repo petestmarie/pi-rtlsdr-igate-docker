@@ -1,10 +1,10 @@
-Dockerfile and systemd script for running an APRS IGate (via [Direwolf](https://github.com/wb2osz/direwolf)) on a RaspberryPi with an attached RTL-SDR dongle.
+Dockerfile and systemd script for running an APRS IGate (via [Direwolf](https://github.com/wb2osz/direwolf)) on a Raspberry Pi with an attached RTL-SDR dongle.
 
-I've tested this on a RaspberryPi 3, but it only takes < 20% CPU so I bet it runs on any RaspberryPi.
+I've tested this on a Raspberry Pi 4.
 
 ## Usage
 
-Make sure you have Docker installed on the RaspberryPi. You probably want to run
+Make sure you have Docker installed on the Raspberry Pi. You probably want to run
 
     curl -sSL https://get.docker.com | sh
 
@@ -13,7 +13,7 @@ After that, you can easily run the version I have in Docker Hub (no need to even
     docker pull erdemirmesut/pi-rtlsdr-igate
     docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -it
 
-You now have a functioning IGate on your RaspberryPi! If you also want to send a beacon with the position of your IGate you can pass a latitude and longitude via environment variables.
+You now have a functioning IGate on your Raspberry Pi! If you also want to send a beacon with the position of your IGate you can pass a latitude and longitude via environment variables.
 
     docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -e LATITUDE=30.1234 -e LONGITUDE=-90.1234 -e COMMENT="Raspberry Pi + RTL-SDR + Direwolf + Docker" -it erdemirmesut/pi-rtlsdr-igate
 
@@ -27,7 +27,7 @@ OR you can use a running gpsd instance by setting the GPSD_HOST (and optional GP
 
 ## systemd script
 
-I've also included a systemd script which makes it easy to have the RaspberryPi start the IGate. To use it copy the systemd file to the appropriate location.
+I've also included a systemd script which makes it easy to have the Raspberry Pi start the IGate. To use it copy the systemd file to the appropriate location.
 
     sudo cp docker-igate.service.example /etc/systemd/system/docker-igate.service
 
