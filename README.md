@@ -10,20 +10,20 @@ Make sure you have Docker installed on the RaspberryPi. You probably want to run
 
 After that, you can easily run the version I have in Docker Hub (no need to even clone this repo). Replace `YOURCALLHERE` with your HAM callsign (e.g. mine is KK6GIP) and `YOURPASSWORDHERE` with your APRS password (generate one [here](http://apps.magicbug.co.uk/passcode/)) in the below command.
 
-    docker pull johnboiles/pi-rtlsdr-igate
+    docker pull erdemirmesut/pi-rtlsdr-igate
     docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -it
 
 You now have a functioning IGate on your RaspberryPi! If you also want to send a beacon with the position of your IGate you can pass a latitude and longitude via environment variables.
 
-    docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -e LATITUDE=30.1234 -e LONGITUDE=-90.1234 -e COMMENT="RaspberryPi + RTL-SDR + Direwolf" -it johnboiles/pi-rtlsdr-igate
+    docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -e LATITUDE=30.1234 -e LONGITUDE=-90.1234 -e COMMENT="Raspberry Pi + RTL-SDR + Direwolf + Docker" -it erdemirmesut/pi-rtlsdr-igate
 
 OR you can use a connected NMEA GPS to send position packets by setting the NMEA_GPS environment variable
 
-    docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -e NMEA_GPS=/dev/ttyACM0 -e COMMENT="RaspberryPi + RTL-SDR + Direwolf" -it johnboiles/pi-rtlsdr-igate
+    docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -e NMEA_GPS=/dev/ttyACM0 -e COMMENT="Raspberry Pi + RTL-SDR + Direwolf + Docker" -it erdemirmesut/pi-rtlsdr-igate
 
 OR you can use a running gpsd instance by setting the GPSD_HOST (and optional GPSD_PORT) environment variables. You can use `dockerhost` to point back to the host machine. Note that you must use `--net=host` to access gpsd at `localhost`.
 
-    docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -e GPSD_HOST=localhost --net=host -e COMMENT="RaspberryPi + RTL-SDR + Direwolf" -it johnboiles/pi-rtlsdr-igate
+    docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -e GPSD_HOST=localhost --net=host -e COMMENT="Raspberry Pi + RTL-SDR + Direwolf + Docker" -it erdemirmesut/pi-rtlsdr-igate
 
 ## systemd script
 
@@ -57,8 +57,8 @@ You can see logs from the container by running
 
 This is mostly for my own reference. But you might want to run a variation of this command if you fork the Dockerfile and want to push it to Docker Hub (replace the docker hub repo with your repo).
 
-    docker build . --tag "johnboiles/pi-rtlsdr-igate:latest"
-    docker push johnboiles/pi-rtlsdr-igate:latest
+    docker build . --tag "erdemirmesut/pi-rtlsdr-igate:latest"
+    docker push erdemirmesut/pi-rtlsdr-igate:latest
 
 ## TODO
 
