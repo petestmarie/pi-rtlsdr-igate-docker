@@ -1,6 +1,6 @@
 FROM mpercival/resin-rtl-sdr
 
-MAINTAINER John Boiles
+MAINTAINER Mesut Erdemir
 
 RUN apt-get update \
 && apt-get install libasound2-dev libgps-dev
@@ -8,7 +8,10 @@ RUN apt-get update \
 RUN cd ~ \
 && git clone https://www.github.com/wb2osz/direwolf \
 && cd ~/direwolf \
-&& make \
+&& mkdir build \
+&& cd build \
+&& cmake .. \
+&& make -j4 \
 && sudo make install
 
 COPY sdr-igate.conf.template ./
