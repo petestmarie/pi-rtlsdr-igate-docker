@@ -8,7 +8,7 @@ Make sure you have Docker installed on the Raspberry Pi. You probably want to ru
 
     curl -sSL https://get.docker.com | sh
 
-After that, you can easily run the version I have in Docker Hub (no need to even clone this repo). Replace `YOURCALLHERE` with your HAM callsign (e.g. mine is KK6GIP) and `YOURPASSWORDHERE` with your APRS password (generate one [here](http://apps.magicbug.co.uk/passcode/)) in the below command.
+After that, you can easily run the version I have in Docker Hub (no need to even clone this repo). Replace `YOURCALLHERE` with your HAM callsign and `YOURPASSWORDHERE` with your APRS password (generate one [here](http://apps.magicbug.co.uk/passcode/)) in the below command.
 
     docker pull erdemirmesut/pi-rtlsdr-igate
     docker run --privileged -e MYCALL=YOURCALLHERE -e APRS_PASSWORD=YOURPASSWORDHERE -it
