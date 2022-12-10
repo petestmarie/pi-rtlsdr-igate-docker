@@ -1,6 +1,6 @@
-FROM mpercival/resin-rtl-sdr
+FROM ghcr.io/sdr-enthusiasts/docker-baseimage:rtlsdr
 
-MAINTAINER Mesut Erdemir
+MAINTAINER Pete St. Marie
 
 RUN apt-get update \
 && apt-get install libasound2-dev libgps-dev
