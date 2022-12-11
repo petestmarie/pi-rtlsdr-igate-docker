@@ -57,8 +57,8 @@ You can see logs from the container by running
 
 This is mostly for my own reference. But you might want to run a variation of this command if you fork the Dockerfile and want to push it to Docker Hub (replace the docker hub repo with your repo).
 
-    docker build . --tag "erdemirmesut/pi-rtlsdr-igate:latest"
-    docker push erdemirmesut/pi-rtlsdr-igate:latest
+    docker build . --tag "petestmarie/pi-rtlsdr-igate:latest"
+    docker push petestmarie/pi-rtlsdr-igate:latest
 
 ## TODO
 
