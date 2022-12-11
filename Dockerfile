@@ -8,7 +8,7 @@ RUN apt-get update \
 RUN cd ~ \
 && git clone https://www.github.com/wb2osz/direwolf \
 && cd ~/direwolf \
-&& git checkout dev
+&& git checkout dev \
 && mkdir build \
 && cd build \
 && cmake .. \
