@@ -3,11 +3,12 @@ FROM ghcr.io/sdr-enthusiasts/docker-baseimage:rtlsdr
 MAINTAINER Pete St. Marie
 
 RUN apt-get update \
-&& apt-get install -y libasound2-dev libgps-dev apt-utils git
+&& apt-get install -y libasound2-dev libgps-dev libudev-dev apt-utils git gcc g++ make cmake 
 
 RUN cd ~ \
 && git clone https://www.github.com/wb2osz/direwolf \
 && cd ~/direwolf \
+&& git checkout dev
 && mkdir build \
 && cd build \
 && cmake .. \
