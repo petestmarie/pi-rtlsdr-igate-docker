@@ -3,7 +3,7 @@ FROM ghcr.io/sdr-enthusiasts/docker-baseimage:rtlsdr
 MAINTAINER Pete St. Marie
 
 RUN apt-get update \
-&& apt-get install -y libasound2-dev libgps-dev libudev-dev apt-utils git gcc g++ make cmake 
+&& apt-get install -y libasound2-dev libgps-dev libudev-dev apt-utils git gcc g++ make cmake sudo
 
 RUN cd ~ \
 && git clone https://www.github.com/wb2osz/direwolf \
