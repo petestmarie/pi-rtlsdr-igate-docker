@@ -12,8 +12,9 @@ RUN cd ~ \
 && mkdir build \
 && cd build \
 && cmake .. \
-&& make -j4 \
-&& sudo make install
+&& make -j4
+
+RUN sudo make install
 
 COPY sdr-igate.conf.template ./
 COPY run.sh ./
